@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>一百天 · 给玲玲宝宝</title>
+<meta name="description" content="2026.07.22 — 2026.10.30，认识你的一百天。" />
+<meta name="theme-color" content="#070310" />
+<style>
+:root{
+  --bg0:#070310; --bg1:#120726; --bg2:#22103f;
+  --pink:#ff9fc7; --rose:#ff6f9c; --lilac:#b79cff; --gold:#ffd6a5; --blue:#8ec5ff;
+  --t1:#f5edff; --t2:rgba(245,237,255,.64); --t3:rgba(245,237,255,.36);
+  --line:rgba(255,255,255,.09);
+  --serif:"STZhongsong","Songti SC","Noto Serif SC","STSong",Georgia,serif;
+  --sans:"PingFang SC","Microsoft YaHei UI","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --pad:clamp(20px,6vw,72px);
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg0);color:var(--t1);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+/* ---------- 固定背景 ---------- */
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.85}
+.glow{position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(70px);opacity:.5}
+.glow-a{width:60vw;height:60vw;left:-14vw;top:-10vw;background:radial-gradient(circle,rgba(255,111,156,.30),transparent 68%);animation:breathe 14s ease-in-out infinite}
+.glow-b{width:66vw;height:66vw;right:-18vw;bottom:-16vw;background:radial-gradient(circle,rgba(140,120,255,.26),transparent 68%);animation:breathe 18s ease-in-out infinite reverse}
+@keyframes breathe{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.42}50%{transform:translate3d(2vw,-2vw,0) scale(1.12);opacity:.62}}
+
+.progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.05)}
+.progress i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--pink),var(--lilac) 55%,var(--gold))}
+
+/* ---------- 音乐按钮 ---------- */
+.music{position:fixed;top:16px;right:16px;z-index:70;display:flex;align-items:center;gap:9px;
+  padding:9px 15px 9px 13px;border-radius:999px;border:1px solid var(--line);
+  background:rgba(20,10,38,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  color:var(--t2);font-size:11.5px;letter-spacing:.16em;transition:.35s var(--ease)}
+.music:hover{color:var(--t1);border-color:rgba(255,159,199,.42)}
+.music .bars{display:flex;align-items:flex-end;gap:2.5px;height:12px}
+.music .bars i{width:2.5px;height:4px;border-radius:2px;background:currentColor;transition:.3s}
+.music.on{color:var(--pink);border-color:rgba(255,159,199,.4)}
+.music.on .bars i{animation:eq .9s ease-in-out infinite}
+.music.on .bars i:nth-child(2){animation-delay:.22s}
+.music.on .bars i:nth-child(3){animation-delay:.44s}
+@keyframes eq{0%,100%{height:4px}50%{height:12px}}
+
+main{position:relative;z-index:2}
+.sec{padding:clamp(76px,13vh,150px) var(--pad);position:relative}
+.head{max-width:720px;margin:0 auto clamp(34px,5vw,60px);text-align:center}
+.head .k{display:block;font-size:10.5px;letter-spacing:.46em;color:var(--pink);opacity:.8;margin-bottom:16px}
+.head h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(26px,5.4vw,42px);
+  letter-spacing:.22em;text-indent:.22em;color:#fff6fc;text-shadow:0 0 40px rgba(255,159,199,.32)}
+.head p{margin:15px 0 0;color:var(--t2);font-size:13.5px;letter-spacing:.16em}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- 开场 ---------- */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;
+  padding:clamp(64px,10vh,110px) var(--pad) clamp(92px,13vh,132px);position:relative;text-align:center}
+.hero-inner{width:100%;max-width:900px;display:flex;flex-direction:column;align-items:center}
+.eyebrow{margin:0;font-size:11px;letter-spacing:.42em;color:var(--t3);font-variant-numeric:tabular-nums}
+.hero h1{
+  margin:clamp(10px,2vh,22px) 0 clamp(4px,1vh,10px);
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(62px,15.5vw,150px);line-height:1.02;letter-spacing:.14em;text-indent:.14em;
+  background:linear-gradient(178deg,#fffdfe 0%,#ffd8ec 40%,#ff9fc7 62%,#c2a6ff 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 34px rgba(255,140,190,.38));
+}
+.hero .sub{margin:0;font-family:var(--serif);font-size:clamp(14px,2.6vw,18px);letter-spacing:.34em;
+  text-indent:.34em;color:var(--t2)}
+.scene{width:min(700px,94vw);height:auto;margin:clamp(6px,2vh,18px) 0 0;overflow:hidden}
+.dayline{margin:clamp(4px,1.4vh,14px) 0 0;font-size:12.5px;letter-spacing:.2em;color:var(--t3);font-variant-numeric:tabular-nums}
+.dayline b{color:var(--pink);font-weight:400}
+.hint{position:absolute;left:50%;bottom:clamp(20px,3.6vh,38px);transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:9px;font-size:10px;letter-spacing:.4em;color:var(--t3)}
+.hint span{width:1px;height:34px;background:linear-gradient(180deg,transparent,rgba(255,159,199,.9),transparent);
+  animation:down 2.2s ease-in-out infinite}
+@keyframes down{0%,100%{opacity:.25;transform:translateY(-5px)}50%{opacity:1;transform:translateY(5px)}}
+
+/* ---------- 一百颗星 ---------- */
+.sec-stars{height:250vh;padding:0}
+.stars-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:clamp(6px,1.6vh,18px);padding:70px var(--pad) 40px}
+.stars-pin .head{margin-bottom:clamp(4px,1.4vh,14px)}
+.heart-box{width:min(78vw,420px);max-height:52vh;position:relative;isolation:isolate}
+.heart-box::before{content:"";position:absolute;inset:-18%;z-index:-1;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,111,156,.22),rgba(183,156,255,.10) 45%,transparent 70%);
+  filter:blur(6px);opacity:.9}
+.heart-box svg{width:100%;height:auto;overflow:visible}
+.dot{fill:#fff;opacity:.13;transform-box:fill-box;transform-origin:center;
+  transition:opacity .5s var(--ease),transform .6s var(--ease)}
+.dot.on{opacity:1;fill:url(#dotGlow);transform:scale(1.9)}
+.counter{margin:0;font-family:var(--serif);font-size:clamp(20px,4.4vw,28px);letter-spacing:.1em;
+  color:var(--t2);font-variant-numeric:tabular-nums}
+.counter b{color:#fff;font-weight:400;text-shadow:0 0 24px rgba(255,159,199,.6)}
+.counter i{font-style:normal;font-size:.62em;opacity:.5;margin-left:6px;letter-spacing:.18em}
+.quip{margin:0;font-size:11.5px;letter-spacing:.24em;color:var(--t3);height:1.4em;transition:color .5s}
+.quip.up{color:var(--gold)}
+
+/* ---------- 时间轴 ---------- */
+.tl{position:relative;max-width:900px;margin:0 auto;padding:10px 0}
+.tl::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%);
+  background:linear-gradient(180deg,transparent,rgba(255,159,199,.34) 10%,rgba(183,156,255,.34) 88%,transparent)}
+.tl-item{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:clamp(28px,5vw,58px);
+  margin-bottom:clamp(26px,4.4vh,48px)}
+.tl-item:last-of-type{margin-bottom:0}
+.tl-dot{position:absolute;left:50%;top:26px;width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;
+  background:var(--pink);box-shadow:0 0 0 4px rgba(255,159,199,.12),0 0 18px rgba(255,159,199,.85)}
+.tl-dot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid rgba(255,159,199,.3);
+  animation:ping 3.4s var(--ease) infinite}
+@keyframes ping{0%{transform:scale(.6);opacity:.9}70%,100%{transform:scale(2.1);opacity:0}}
+.tl-card{grid-column:1;grid-row:1;text-align:right;position:relative;align-self:start;
+  background:rgba(255,255,255,.038);border:1px solid var(--line);border-radius:18px;
+  padding:clamp(18px,2.6vw,26px) clamp(18px,2.8vw,28px);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border-color .5s,transform .6s var(--ease)}
+.tl-item:nth-of-type(even) .tl-card{grid-column:2;text-align:left}
+.tl-card:hover{border-color:rgba(255,159,199,.28)}
+.tl-meta{display:flex;gap:12px;align-items:baseline;justify-content:flex-end;
+  font-size:10.5px;letter-spacing:.28em;color:var(--pink);font-variant-numeric:tabular-nums}
+.tl-item:nth-of-type(even) .tl-meta{justify-content:flex-start}
+.tl-meta .tl-d2{color:var(--t3);letter-spacing:.2em}
+.tl-t{margin:11px 0 0;font-family:var(--serif);font-weight:400;font-size:clamp(17px,2.5vw,21px);
+  letter-spacing:.06em;color:#fff4fb;line-height:1.6}
+.tl-p{margin:10px 0 0;font-size:14px;line-height:2;color:var(--t2);letter-spacing:.02em}
+.tl-ico{position:absolute;top:clamp(14px,2.4vw,22px);left:clamp(14px,2.4vw,22px);color:var(--pink);opacity:.22}
+.tl-item:nth-of-type(even) .tl-ico{left:auto;right:clamp(14px,2.4vw,22px)}
+.tl-ico svg{width:26px;height:26px}
+
+/* ---------- 时间轴里的照片 ---------- */
+.tl-media{grid-column:2;grid-row:1;justify-self:start;align-self:start;width:100%;max-width:336px}
+.tl-item:nth-of-type(even) .tl-media{grid-column:1;justify-self:end}
+.tl-photo{margin:0;background:#fdf7f1;padding:9px 9px 0;border-radius:3px;
+  transform:rotate(var(--rot,-1.2deg));
+  box-shadow:0 24px 46px -24px rgba(0,0,0,.92),0 1px 0 rgba(255,255,255,.55) inset;
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
+.tl-item:nth-of-type(even) .tl-photo{--rot:1.3deg}
+.tl-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:var(--op,50% 46%);
+  filter:saturate(.95) contrast(1.02);background:#e9e2dc}
+.tl-photo.tall img{aspect-ratio:3/4}
+.tl-photo figcaption{padding:9px 2px 11px;text-align:center;color:#5c4654;font-family:var(--serif);
+  font-size:11.5px;letter-spacing:.06em;line-height:1.6}
+.tl-photo:hover{transform:rotate(0) translateY(-5px);
+  box-shadow:0 32px 56px -24px rgba(0,0,0,.96)}
+.tl-media .tl-photo + .tl-photo{margin-top:16px;width:86%;margin-left:auto;--rot:2.2deg}
+.tl-item:nth-of-type(even) .tl-media .tl-photo + .tl-photo{--rot:-2.2deg;margin-left:0;margin-right:auto}
+
+/* ---------- 章节分隔 ---------- */
+.chapter{position:relative;display:flex;align-items:center;justify-content:center;gap:16px;
+  margin:clamp(34px,6vh,62px) 0 clamp(22px,3.6vh,34px);color:rgba(255,214,165,.9)}
+.chapter::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:min(80%,440px);height:104px;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(8,4,18,.99),rgba(8,4,18,0))}
+.chapter span{position:relative;font-family:var(--serif);font-size:clamp(18px,3.1vw,23px);
+  letter-spacing:.42em;text-indent:.42em;white-space:nowrap}
+.chapter em{position:relative;font-style:normal;font-size:10.5px;letter-spacing:.24em;color:var(--t3)}
+.chapter i{position:relative;width:5px;height:5px;border-radius:50%;background:currentColor;
+  box-shadow:0 0 12px currentColor;flex:0 0 auto}
+
+/* ---------- 数字 ---------- */
+.nums{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,2.4vw,24px);
+  max-width:920px;margin:0 auto}
+.num{text-align:center;padding:clamp(14px,2.2vw,20px) 6px}
+.num b{display:block;font-family:var(--serif);font-weight:400;line-height:1.05;
+  font-size:clamp(30px,5.2vw,46px);letter-spacing:.03em;
+  background:linear-gradient(180deg,#fffdfe,#ffc9e2 56%,#c2a6ff);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 20px rgba(255,140,190,.28))}
+.num span{display:block;margin-top:10px;font-size:11px;letter-spacing:.22em;color:var(--t3)}
+
+/* ---------- 语录便签 ---------- */
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(206px,1fr));gap:clamp(14px,2.4vw,24px);
+  max-width:900px;margin:0 auto;align-items:start}
+.note{position:relative;margin:0;background:#fdf7f1;color:#43323f;border-radius:3px;
+  padding:22px 20px 16px;
+  transform:rotate(var(--rot,-1.4deg));
+  box-shadow:0 22px 42px -22px rgba(0,0,0,.9),0 1px 0 rgba(255,255,255,.6) inset;
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease)}
+.note:nth-child(3n+2){background:#fbf1ff}
+.note:nth-child(3n){background:#fff4f8}
+.note:nth-of-type(even){--rot:1.7deg}
+.note:nth-of-type(3n){--rot:-2.3deg}
+.note::before{content:"";position:absolute;top:-9px;left:50%;width:62px;height:17px;
+  transform:translateX(-50%) rotate(-2.2deg);background:rgba(255,214,165,.5);
+  box-shadow:0 2px 7px rgba(0,0,0,.2)}
+.note:nth-of-type(even)::before{transform:translateX(-50%) rotate(1.8deg)}
+.note:hover{transform:rotate(0) translateY(-6px);box-shadow:0 30px 54px -22px rgba(0,0,0,.95)}
+.note blockquote{margin:0;font-family:var(--serif);font-size:clamp(17px,2.5vw,21px);
+  letter-spacing:.03em;line-height:1.5}
+.note figcaption{margin-top:12px;font-size:11.5px;line-height:1.85;color:#8b7382;letter-spacing:.03em}
+
+/* ---------- 右侧章节导航 ---------- */
+.dots{position:fixed;right:clamp(10px,1.5vw,22px);top:50%;transform:translateY(-50%);z-index:55;
+  display:flex;flex-direction:column;gap:15px;opacity:0;pointer-events:none;
+  transition:opacity .6s var(--ease)}
+.dots.show{opacity:1;pointer-events:auto}
+.dots a{position:relative;display:block;width:8px;height:8px;border-radius:50%;
+  background:rgba(245,237,255,.3);transition:.35s var(--ease)}
+.dots a::after{content:attr(data-t);position:absolute;right:18px;top:50%;
+  transform:translateY(-50%) translateX(7px);white-space:nowrap;
+  font-size:10.5px;letter-spacing:.2em;color:var(--t2);opacity:0;
+  transition:.35s var(--ease);pointer-events:none}
+.dots a:hover{background:var(--pink);transform:scale(1.4)}
+.dots a:hover::after{opacity:1;transform:translateY(-50%) translateX(0)}
+.dots a.on{background:var(--pink);transform:scale(1.3);
+  box-shadow:0 0 12px rgba(255,159,199,.85)}
+.dots a.on::after{opacity:.85;transform:translateY(-50%) translateX(0)}
+@media (max-width:1080px){.dots{display:none}}
+
+/* ---------- 信纸 ---------- */
+.paper{max-width:640px;margin:0 auto;background:linear-gradient(170deg,#fdf7f0,#f6ece4);
+  color:#40303c;border-radius:4px;padding:clamp(30px,5.4vw,52px) clamp(24px,5vw,50px);position:relative;
+  box-shadow:0 40px 70px -30px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.5) inset;
+  transform:rotate(-.5deg)}
+.paper::before{content:"";position:absolute;top:-13px;left:50%;width:96px;height:26px;
+  transform:translateX(-50%) rotate(-2deg);background:rgba(255,214,165,.55);
+  box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.paper p{margin:0;font-family:var(--serif);font-size:clamp(14.5px,2.2vw,16.5px);line-height:2.15;
+  letter-spacing:.04em;white-space:pre-line;min-height:6em}
+.caret{display:inline-block;width:1px;height:1.05em;background:#40303c;vertical-align:-.16em;
+  margin-left:2px;animation:blink 1s steps(1) infinite}
+.caret.done{opacity:0;animation:none}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.paper .sign{margin-top:26px;text-align:right;font-family:var(--serif);font-size:13px;
+  letter-spacing:.14em;color:#7a6472}
+
+/* ---------- 尾声 ---------- */
+.finale{text-align:center;padding-bottom:clamp(60px,10vh,110px)}
+.finale .next{font-family:var(--serif);font-size:clamp(15px,2.6vw,18px);line-height:2.3;
+  letter-spacing:.14em;color:var(--t2);margin:0 0 clamp(30px,5vh,48px)}
+.finale .next b{color:var(--gold);font-weight:400;letter-spacing:.2em}
+.cake{display:inline-block;width:clamp(132px,27vw,182px);filter:drop-shadow(0 14px 30px rgba(255,111,156,.4));
+  transition:transform .5s var(--ease),filter .5s var(--ease)}
+.cake:hover{transform:translateY(-8px) scale(1.04);filter:drop-shadow(0 18px 36px rgba(255,159,199,.7))}
+.cake:active{transform:translateY(-2px) scale(.99)}
+.cake .flame{transform-origin:60px 30px;animation:flick 2.4s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1) translateY(0);opacity:.95}50%{transform:scale(1.12) translateY(-2px);opacity:1}}
+.tap{margin:18px 0 0;font-size:11px;letter-spacing:.3em;color:var(--t3)}
+.footer{margin:clamp(60px,10vh,110px) 0 0;font-size:10.5px;letter-spacing:.34em;color:rgba(245,237,255,.22)}
+
+/* ---------- 爱心拖尾 ---------- */
+#trail{position:fixed;inset:0;pointer-events:none;z-index:65}
+.tr{position:fixed;font-size:11px;line-height:1;color:var(--pink);will-change:transform,opacity;
+  text-shadow:0 0 10px rgba(255,111,156,.85);animation:trf 1s ease-out forwards}
+@keyframes trf{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.35)}
+  18%{opacity:.95}
+  100%{opacity:0;transform:translate(calc(-50% + var(--dx,0px)),calc(-50% - 52px)) scale(1.05) rotate(var(--rot,0deg))}
+}
+
+/* ---------- 彩蛋 ---------- */
+.egg{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:24px}
+.egg[hidden]{display:none}
+.egg-bd{position:absolute;inset:0;background:rgba(6,3,14,.78);backdrop-filter:blur(9px);
+  -webkit-backdrop-filter:blur(9px);opacity:0;transition:opacity .5s var(--ease)}
+.egg.on .egg-bd{opacity:1}
+.egg-card{position:relative;width:min(360px,90vw);text-align:center;
+  background:linear-gradient(165deg,rgba(48,24,84,.96),rgba(24,11,46,.98));
+  border:1px solid rgba(255,159,199,.28);border-radius:26px;padding:34px 28px 30px;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,1),0 0 0 1px rgba(255,255,255,.05) inset;
+  transform:translateY(22px) scale(.94);opacity:0;transition:transform .6s var(--ease),opacity .6s var(--ease)}
+.egg.on .egg-card{transform:none;opacity:1}
+.egg .pup{width:104px;height:104px;margin:0 auto 6px;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.egg-t{margin:10px 0 0;font-family:var(--serif);font-size:clamp(20px,5vw,24px);letter-spacing:.16em;
+  text-indent:.16em;color:#fff4fb;text-shadow:0 0 30px rgba(255,159,199,.5)}
+.egg-s{margin:12px 0 24px;font-size:12.5px;line-height:2;letter-spacing:.08em;color:var(--t2)}
+.egg-x{padding:11px 34px;border-radius:999px;border:1px solid rgba(255,159,199,.42);
+  background:rgba(255,159,199,.1);font-size:12.5px;letter-spacing:.24em;color:var(--pink);
+  transition:.35s var(--ease)}
+.egg-x:hover{background:rgba(255,159,199,.22);color:#fff}
+.confetti{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.confetti i{position:absolute;top:-10vh;border-radius:2px;animation-name:drop;animation-timing-function:cubic-bezier(.2,.5,.3,1);animation-fill-mode:forwards}
+@keyframes drop{from{transform:translate3d(0,0,0) rotate(0)}to{transform:translate3d(var(--dx,0),112vh,0) rotate(var(--rot,360deg))}}
+
+/* ---------- 手机 ---------- */
+@media (max-width:820px){
+  .tl::before{left:9px}
+  .tl-item{display:flex;flex-direction:column;padding-left:34px;margin-bottom:clamp(22px,3.6vh,34px)}
+  .tl-media{order:-1;width:100%;max-width:none;margin:0 0 16px}
+  .tl-media .tl-photo + .tl-photo{width:78%;margin:14px 0 0 auto}
+  .chapter{justify-content:flex-start;padding-left:34px;gap:11px;margin:26px 0 20px}
+  .chapter::before{left:0;transform:translate(-30%,-50%);width:240px}
+  .tl-item .tl-card,.tl-item:nth-of-type(even) .tl-card{grid-column:auto;text-align:left}
+  .tl-dot{left:9px;top:24px}
+  .tl-meta,.tl-item:nth-of-type(even) .tl-meta{justify-content:flex-start}
+  .tl-ico,.tl-item:nth-of-type(even) .tl-ico{left:auto;right:16px}
+  .tl-p{font-size:13.5px;line-height:1.95}
+}
+@media (max-width:640px){
+  .music{top:12px;right:12px;padding:8px 13px 8px 11px;font-size:11px}
+  .heart-box{width:min(84vw,340px)}
+  .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nums .num:last-child{grid-column:span 2}
+  .notes{grid-template-columns:1fr;max-width:420px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress"><i id="bar"></i></div>
+<canvas id="sky"></canvas>
+<div class="glow glow-a"></div>
+<div class="glow glow-b"></div>
+
+<button id="musicBtn" class="music" aria-pressed="false" aria-label="背景音乐开关" title="请和这样的我恋爱吧 · 王澳楠EVE">
+  <span class="bars"><i></i><i></i><i></i></span><span class="mtext">音乐</span>
+</button>
+
+<nav class="dots" id="dots" aria-label="章节导航">
+  <a href="#top" data-t="开场"></a>
+  <a href="#stars" data-t="一百颗星"></a>
+  <a href="#story" data-t="一百天里"></a>
+  <a href="#numbers" data-t="这些数字"></a>
+  <a href="#quotes" data-t="我们说过的话"></a>
+  <a href="#letter" data-t="一封信"></a>
+  <a href="#finale" data-t="未完待续"></a>
+</nav>
+
+<audio id="bgm" src="assets/music.mp3" preload="none" loop playsinline aria-hidden="true"></audio>
+
+<main>
+
+  <!-- ========== 0 · 开场 ========== -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <p class="eyebrow reveal">2026.07.22 &nbsp;——&nbsp; 2026.10.30</p>
+      <h1 class="reveal">一百天</h1>
+      <p class="sub reveal">给 玲玲宝宝</p>
+
+      <svg class="scene reveal" viewBox="0 0 760 520" role="img" aria-label="月亮下面，两个人并肩站在云上">
+        <defs>
+          <radialGradient id="halo" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#ff9fc7" stop-opacity=".45"/>
+            <stop offset="40%" stop-color="#b79cff" stop-opacity=".18"/>
+            <stop offset="100%" stop-color="#b79cff" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="disc" x1=".15" y1="0" x2=".9" y2="1">
+            <stop offset="0" stop-color="#fffdf6"/>
+            <stop offset="46%" stop-color="#ffe7f3"/>
+            <stop offset="100%" stop-color="#edd3ff"/>
+          </linearGradient>
+          <radialGradient id="cloud" cx="50%" cy="24%" r="76%">
+            <stop offset="0" stop-color="#efe6ff" stop-opacity=".92"/>
+            <stop offset="55%" stop-color="#c3b0f2" stop-opacity=".38"/>
+            <stop offset="100%" stop-color="#8f74d6" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="ground" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#c9a8ff" stop-opacity=".22"/>
+            <stop offset="60%" stop-color="#8f74d6" stop-opacity=".08"/>
+            <stop offset="100%" stop-color="#8f74d6" stop-opacity="0"/>
+          </radialGradient>
+          <mask id="cresMask">
+            <circle cx="552" cy="150" r="88" fill="#fff"/>
+            <circle cx="589" cy="119" r="84" fill="#000"/>
+          </mask>
+        </defs>
+
+        <circle cx="552" cy="150" r="205" fill="url(#halo)"/>
+        <circle cx="552" cy="150" r="88" fill="url(#disc)" mask="url(#cresMask)"/>
+        <circle cx="552" cy="150" r="88" fill="none" stroke="#fff3fa" stroke-opacity=".18"/>
+
+        <g fill="#fff">
+          <circle cx="88" cy="96" r="1.7" opacity=".85"/>
+          <circle cx="168" cy="182" r="1.1" opacity=".45"/>
+          <circle cx="252" cy="86" r="1.3" opacity=".6"/>
+          <circle cx="318" cy="152" r="1" opacity=".4"/>
+          <circle cx="412" cy="72" r="1.5" opacity=".7"/>
+          <circle cx="676" cy="240" r="1.2" opacity=".5"/>
+          <circle cx="708" cy="100" r="1.6" opacity=".75"/>
+          <circle cx="58" cy="252" r="1.3" opacity=".5"/>
+          <circle cx="140" cy="332" r="1" opacity=".32"/>
+          <circle cx="662" cy="336" r="1.1" opacity=".38"/>
+          <circle cx="482" cy="118" r="1.2" opacity=".55"/>
+          <circle cx="220" cy="254" r="1" opacity=".32"/>
+        </g>
+
+        <ellipse cx="380" cy="500" rx="252" ry="62" fill="url(#ground)"/>
+
+        <g>
+          <ellipse cx="286" cy="486" rx="104" ry="28" fill="url(#cloud)"/>
+          <ellipse cx="480" cy="488" rx="96" ry="26" fill="url(#cloud)"/>
+          <ellipse cx="380" cy="478" rx="146" ry="38" fill="url(#cloud)"/>
+          <ellipse cx="380" cy="478" rx="146" ry="38" fill="none" stroke="#f4ecff" stroke-opacity=".22" stroke-width="1"/>
+        </g>
+
+        <g id="cast"></g>
+
+        <g fill="#ff9fc7">
+          <path d="M232,206 c0,-5.4 6.4,-8.6 9.6,-3.2 c3.2,-5.4 9.6,-2.2 9.6,3.2 c0,4.3 -9.6,9.6 -9.6,9.6 s-9.6,-5.3 -9.6,-9.6 z" opacity=".7"/>
+          <path d="M646,296 c0,-4 4.8,-6.4 7.2,-2.4 c2.4,-4 7.2,-1.6 7.2,2.4 c0,3.2 -7.2,7.2 -7.2,7.2 s-7.2,-4 -7.2,-7.2 z" opacity=".45"/>
+        </g>
+      </svg>
+
+      <p class="dayline reveal" id="dayline"></p>
+    </div>
+    <div class="hint"><span></span>往下</div>
+  </header>
+
+  <!-- ========== Ⅰ · 一百颗星 ========== -->
+  <section class="sec sec-stars" id="stars">
+    <div class="stars-pin">
+      <div class="head reveal">
+        <span class="k">Ⅰ</span>
+        <h2>一百颗星</h2>
+        <p>每一天，点亮一颗。</p>
+      </div>
+      <div class="heart-box"><svg id="heartSvg" viewBox="0 0 620 560" aria-hidden="true">
+        <defs>
+          <radialGradient id="dotGlow">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="38%" stop-color="#ffe2f0"/>
+            <stop offset="72%" stop-color="#ff9fc7" stop-opacity=".85"/>
+            <stop offset="100%" stop-color="#ff6f9c" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+      </svg></div>
+      <p class="counter"><b id="litNum">0</b><i>/ 100</i></p>
+      <p class="quip" id="quip">继续往下，把它们一颗一颗点亮</p>
+    </div>
+  </section>
+
+  <!-- ========== Ⅱ · 一百天里 ========== -->
+  <section class="sec" id="story">
+    <div class="head reveal">
+      <span class="k">Ⅱ</span>
+      <h2>一百天里</h2>
+      <p>没有发生什么大事，都是小事。</p>
+    </div>
+    <div class="tl" id="tl"></div>
+  </section>
+
+  <!-- ========== Ⅲ · 这些数字 ========== -->
+  <section class="sec" id="numbers">
+    <div class="head reveal">
+      <span class="k">Ⅲ</span>
+      <h2>这些数字</h2>
+      <p>看着不多，其实装满了一百天。</p>
+    </div>
+    <div class="nums">
+      <div class="num reveal"><b>100</b><span>天</span></div>
+      <div class="num reveal"><b>14</b><span>件事</span></div>
+      <div class="num reveal"><b>13</b><span>张照片</span></div>
+      <div class="num reveal"><b>2</b><span>次拼豆</span></div>
+      <div class="num reveal"><b>03:00</b><span>凌晨的站台</span></div>
+    </div>
+  </section>
+
+  <!-- ========== Ⅳ · 我们说过的话 ========== -->
+  <section class="sec" id="quotes">
+    <div class="head reveal">
+      <span class="k">Ⅳ</span>
+      <h2>我们说过的话</h2>
+      <p>有些只有我们听得懂。</p>
+    </div>
+    <div class="notes">
+      <figure class="note reveal">
+        <blockquote>望妻石</blockquote>
+        <figcaption>凌晨三点，风里，我给自己起的名字</figcaption>
+      </figure>
+      <figure class="note reveal">
+        <blockquote>大胃袋</blockquote>
+        <figcaption>四人餐上桌的时候，隔壁桌看我的眼神</figcaption>
+      </figure>
+      <figure class="note reveal">
+        <blockquote>娜塔莎</blockquote>
+        <figcaption>军训把你晒黑了两个色号，我笑了你三天</figcaption>
+      </figure>
+      <figure class="note reveal">
+        <blockquote>中辣，我可以</blockquote>
+        <figcaption>第二天你在宿舍疼得直不起腰</figcaption>
+      </figure>
+      <figure class="note reveal">
+        <blockquote>下次再也不装了</blockquote>
+        <figcaption>第一次拼豆之后，我的总结</figcaption>
+      </figure>
+      <figure class="note reveal">
+        <blockquote>一块都不能剩</blockquote>
+        <figcaption>火锅店老板看着我们桌上那堆西瓜皮</figcaption>
+      </figure>
+      <figure class="note reveal">
+        <blockquote>最可爱的是你</blockquote>
+        <figcaption>这句我没说出口</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ========== Ⅳ · 一封信 ========== -->
+  <section class="sec" id="letter">
+    <div class="head reveal">
+      <span class="k">Ⅴ</span>
+      <h2>一封信</h2>
+      <p>写在一百天的晚上。</p>
+    </div>
+    <div class="paper reveal">
+      <p><span id="tw"></span><span class="caret" id="caret"></span></p>
+      <div class="sign">—— 你的学长</div>
+    </div>
+  </section>
+
+  <!-- ========== Ⅴ · 未完待续 ========== -->
+  <section class="sec finale" id="finale">
+    <div class="head reveal">
+      <span class="k">Ⅵ</span>
+      <h2>未完待续</h2>
+    </div>
+    <p class="next reveal">
+      这一页写完的时候，第一百天才刚刚开始。<br/>
+      下一封信，我们写在第二百天 —— <b>2027.02.07</b>
+    </p>
+    <button class="cake reveal" id="cakeBtn" aria-label="点一下蛋糕">
+      <svg viewBox="0 0 120 120" width="100%">
+        <ellipse cx="60" cy="104" rx="36" ry="6" fill="#000" opacity=".25"/>
+        <ellipse cx="60" cy="99" rx="41" ry="8.5" fill="#ffe3f1" opacity=".28"/>
+        <path d="M22,72 h76 v22 a8,8 0 0 1 -8,8 h-60 a8,8 0 0 1 -8,-8 z" fill="#ffbcd8"/>
+        <path d="M22,72 q19,11 38,0 q19,11 38,0 v9 q-19,11 -38,0 q-19,11 -38,0 z" fill="#fff2f8"/>
+        <path d="M32,50 h56 v20 a6,6 0 0 1 -6,6 h-44 a6,6 0 0 1 -6,-6 z" fill="#ff9fc7"/>
+        <path d="M32,50 q14,8 28,0 q14,8 28,0 v7 q-14,8 -28,0 q-14,8 -28,0 z" fill="#fff6fb"/>
+        <circle cx="42" cy="66" r="2.2" fill="#ffd6e6"/><circle cx="60" cy="70" r="2.2" fill="#ffd6e6"/>
+        <circle cx="78" cy="66" r="2.2" fill="#ffd6e6"/>
+        <rect x="57" y="30" width="6" height="22" rx="3" fill="#fff4e6"/>
+        <g class="flame">
+          <path d="M60,15 c7,9 7,14 0,17 c-7,-3 -7,-8 0,-17 z" fill="#ffd6a5"/>
+          <circle cx="60" cy="25" r="8" fill="#ffd6a5" opacity=".28"/>
+        </g>
+      </svg>
+    </button>
+    <p class="tap">↑ 点一下它</p>
+    <p class="footer">2026 · 夏 → 秋 · 贵阳</p>
+  </section>
+
+</main>
+
+<div id="trail" aria-hidden="true"></div>
+
+<div class="egg" id="egg" hidden>
+  <div class="egg-bd" id="eggBd"></div>
+  <div class="egg-card">
+    <svg class="pup" viewBox="0 0 120 120" aria-hidden="true">
+      <ellipse cx="60" cy="112" rx="30" ry="5" fill="#000" opacity=".3"/>
+      <ellipse cx="60" cy="92" rx="30" ry="20" fill="#fdf8fb"/>
+      <path d="M88,84 q14,2 12,12 q-2,8 -9,4" fill="none" stroke="#fdf8fb" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="60" cy="52" r="27" fill="#fffdfe"/>
+      <path d="M37,36 q-9,-17 5,-13 q6,2 7,9 z" fill="#f3e8f1"/>
+      <path d="M83,36 q9,-17 -5,-13 q-6,2 -7,9 z" fill="#f3e8f1"/>
+      <ellipse cx="60" cy="58" rx="15" ry="11" fill="#fbefF6" opacity=".9"/>
+      <circle cx="50" cy="48" r="3.3" fill="#2a1b3d"/><circle cx="70" cy="48" r="3.3" fill="#2a1b3d"/>
+      <circle cx="51.2" cy="46.8" r="1.1" fill="#fff"/><circle cx="71.2" cy="46.8" r="1.1" fill="#fff"/>
+      <ellipse cx="60" cy="58" rx="4.6" ry="3.4" fill="#2a1b3d"/>
+      <path d="M60,61.5 q0,4.5 -4.5,4" stroke="#2a1b3d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M60,61.5 q0,4.5 4.5,4" stroke="#2a1b3d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <ellipse cx="41" cy="57" rx="5.5" ry="3.2" fill="#ffa8c4" opacity=".55"/>
+      <ellipse cx="79" cy="57" rx="5.5" ry="3.2" fill="#ffa8c4" opacity=".55"/>
+    </svg>
+    <p class="egg-t">第一百天快乐</p>
+    <p class="egg-s">它说：剩下的日子，也拜托你了。<br/>（这句是狗说的，我不好意思讲）</p>
+    <button class="egg-x" id="eggX">收下</button>
+  </div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+</div>
+
+<noscript><style>.reveal{opacity:1;transform:none}#heartSvg{display:none}</style></noscript>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ==================================================================
+     ①  所有要改的东西都在这里
+     ================================================================== */
+
+  const CFG = {
+    start:  '2026-07-22',   // 认识的第 1 天（这天算「开始」）
+    day100: '2026-10-30',   // 第 100 天
+    her:    '玲玲宝宝'       // 称呼，改这里会同时改标题
+  };
+
+  // 时间轴：k=小标签  d=日期  t=标题  p=正文  icon=图标名
+  const NODES = [
+    { chapter: { title: '七 月', note: '一句话' } },
+    {
+      k: '第 1 天', d: '2026.07.22', icon: 'chat',
+      t: '同学你好，您是贵大的学长吗',
+      p: '你比我先开口，还用了「您」。我本来只想回一句「是的」，结果那条对话一直没停，一直停到了一百天以后。',
+      img: 'assets/chat.jpg', alt: '第一天的聊天记录', cap: '07.22 · 第一句', tall: true, op: '50% 38%'
+    },
+    {
+      k: '八月', d: '', icon: 'book',
+      t: '惊鸿一瞥',
+      p: '我给你送新生要用的书，在楼下站了几秒钟。回去的路上我一直在想，刚才是不是应该多说两句话。'
+    },
+
+    { chapter: { title: '八月 · 九月', note: '慢慢靠近' } },
+    {
+      k: '09.01', d: '', icon: 'sun',
+      t: '娜塔莎',
+      p: '军训把你晒黑了两个色号。我笑你像娜塔莎，你气得要打我。可那天傍晚的晚霞，你还是先发给了我。',
+      img: 'assets/military.jpg', alt: '军训操场上的晚霞', cap: '09.01 · 你发来的晚霞'
+    },
+    {
+      k: '09.03', d: '', icon: 'cup',
+      t: '一整箱冰浆',
+      p: '我拎了一整箱冰浆去找你，想让你尝尝贵州的味道。你走的时候，冲我敬了个礼。',
+      img: 'assets/bingjiang.jpg', alt: '一整箱冰浆', cap: '09.03 · 都尝尝', tall: true
+    },
+    {
+      k: '九月', d: '', icon: 'power',
+      t: '百分之一的电',
+      p: '你起疹子，我陪你去医院。你手机只剩 1%，充电宝又刚好借不到，于是那一路我们只能一直说话。那是我最喜欢的一次意外。'
+    },
+    {
+      k: '九月', d: '', icon: 'camera',
+      t: '偷拍',
+      p: '你在江边低头看手机，我悄悄按了一下，没敢开闪光灯。这张照片我存了很久，一直没告诉你。',
+      img: 'assets/peek.jpg', alt: '江边偷拍的一张', cap: '九月 · 江边'
+    },
+
+    { chapter: { title: '十 月', note: '后来的事' } },
+    {
+      k: '十月', d: '', icon: 'food',
+      t: '四人餐',
+      p: '你说要请我吃绿茶餐厅，还想让室友也尝尝，于是点了个四人餐。上菜的时候，隔壁桌看我的眼神我到现在都记得——大胃袋，我认了。',
+      img: 'assets/dinner4.jpg', alt: '一桌四人份的菜', cap: '十月 · 四个人的量'
+    },
+    {
+      k: '十月', d: '', icon: 'crown',
+      t: '银冠',
+      p: '你说想看看贵州的民族风情，我带你去做了妆造。你从化妆间出来的时候，我在门口站了两秒才认出来。',
+      img: 'assets/makeup.jpg', alt: '她做的民族妆造', cap: '十月 · 妆造那天'
+    },
+    {
+      k: '十月', d: '', icon: 'fire',
+      t: '中辣',
+      p: '晚上吃火锅鸡，你非要中辣，说你行。第二天你在宿舍疼得直不起腰，我拎着药过去。心疼，又想笑。',
+      img: 'assets/hotpot.jpg', alt: '火锅鸡', cap: '十月 · 火锅鸡'
+    },
+    {
+      k: '10.01 — 10.07', d: '', icon: 'train',
+      t: '望妻石',
+      p: '国庆七天，各回各家。最后一天你的火车凌晨三点才到贵阳站，我在风里站成了一块石头。看见你的时候，手已经冻僵了。',
+      img: 'assets/wait.jpg', alt: '凌晨的贵阳站', cap: '10.07 · 03:00 贵阳站'
+    },
+    {
+      k: '十月', d: '', icon: 'heart',
+      t: '拼豆 · 第一次',
+      p: '我跟你说这是我第二次拼豆，其实第一次去的时候，我一颗都没动过手。这一次全程露怯，笑话闹了一路。下次再也不装了。',
+      img: 'assets/beads1.jpg', alt: '拼豆的工作台', cap: '十月 · 我的第一次'
+    },
+    {
+      k: '十月', d: '', icon: 'camera',
+      t: '晚霞，和一把钥匙扣',
+      p: '和你在一起，时间过得太快。我悄悄拍了那天的晚霞，许了个愿：以后能常和你一起看。你拼了把钥匙扣给我，说不好看——可只要是你送的，我都喜欢。',
+      img: 'assets/beadsunset.jpg', alt: '那天的晚霞', cap: '十月 · 悄悄拍的晚霞',
+      img2: 'assets/gift.jpg', alt2: '她做的拼豆钥匙扣', cap2: '她做的钥匙扣'
+    },
+    {
+      k: '十月', d: '', icon: 'heart',
+      t: '拼豆 · 第二次',
+      p: '这次你拼了一堆小玩意儿，库洛米、布丁狗、凯蒂猫，摆了一桌子。不过最可爱的，当然是你。',
+      img: 'assets/beads2.jpg', alt: '她拼的一堆小玩意儿', cap: '十月 · 一桌子'
+    },
+    {
+      k: '十月', d: '', icon: 'fire',
+      t: '一块不剩',
+      p: '你明明想吃火锅，我说去烙锅，你还假装犹豫了一下。最后还不是把我拽回火锅店，把人家的西瓜全干完了。愧疚三秒。',
+      img: 'assets/hotpot2.jpg', alt: '火锅', cap: '十月 · 最后一口西瓜', tall: true
+    }
+  ];
+
+  const LETTER =
+`一百天前，你只是我刚通过的一条好友申请，还客气地用「您」。
+一百天后，我知道你怕什么、爱吃什么、辣到什么程度会嘴硬。
+
+这一百天里没有发生什么了不起的事，
+只有一箱冰浆、一桌四个人的份、一次百分之一的电，
+一个凌晨三点的站台，和两次拼豆。
+
+你送我的钥匙扣我一直带着，虽然你说它不好看。
+那天的晚霞也存着——我许的愿是：以后常一起看。
+
+下一个一百天，我还想当那个先回你消息的人，
+也想当那个在风里等你等到三点的人。`;
+
+  /* ==================================================================
+     ②  工具
+     ================================================================== */
+
+  const $  = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const D = (s) => { const [y, m, d] = s.split('-').map(Number); return new Date(y, m - 1, d); };
+
+  /* ==================================================================
+     ③  天数
+     ================================================================== */
+
+  (function days() {
+    const t0 = D(CFG.start), t100 = D(CFG.day100);
+    const now = new Date(); now.setHours(0, 0, 0, 0);
+    const n = Math.round((now - t0) / 864e5) + 1;
+    const left = Math.round((t100 - now) / 864e5);
+    const el = $('#dayline');
+    if (!el) return;
+    if (left > 0)      el.innerHTML = `今天是第 <b>${n}</b> 天 · 距离第一百天还有 <b>${left}</b> 天`;
+    else if (left === 0) el.innerHTML = `今天，正好是第 <b>100</b> 天`;
+    else               el.innerHTML = `第 <b>${n}</b> 天 · 一百天之后，还在继续`;
+  })();
+
+  /* ==================================================================
+     ④  背景星空
+     ================================================================== */
+
+  (function sky() {
+    const cv = $('#sky'); if (!cv) return;
+    const cx = cv.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0, h = 0, stars = [], raf = 0;
+
+    function build() {
+      w = cv.width = Math.floor(innerWidth * dpr);
+      h = cv.height = Math.floor(innerHeight * dpr);
+      cv.style.width = innerWidth + 'px';
+      cv.style.height = innerHeight + 'px';
+      const n = clamp(Math.round(innerWidth * innerHeight / 9000), 40, 190);
+      stars = Array.from({ length: n }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        r: (Math.random() * 1.05 + .3) * dpr,
+        a: Math.random() * Math.PI * 2,
+        s: Math.random() * .022 + .004
+      }));
+    }
+
+    function paint() {
+      cx.clearRect(0, 0, w, h);
+      for (let i = 0; i < stars.length; i++) {
+        const st = stars[i];
+        st.a += st.s;
+        cx.globalAlpha = .18 + Math.abs(Math.sin(st.a)) * .62;
+        cx.fillStyle = i % 7 === 0 ? '#ffd9ec' : '#ffffff';
+        cx.beginPath(); cx.arc(st.x, st.y, st.r, 0, 6.2832); cx.fill();
+      }
+      cx.globalAlpha = 1;
+      if (!RM) raf = requestAnimationFrame(paint);
+    }
+
+    build();
+    addEventListener('resize', () => { cancelAnimationFrame(raf); build(); paint(); });
+    paint();
+  })();
+
+  /* ==================================================================
+     ⑤  两个小人 + 一只萨摩耶
+     ================================================================== */
+
+  function person(o) {
+    o = o || {};
+    const hair   = o.hair   || '#241a33';
+    const cloth  = o.cloth  || '#fff6fb';
+    const cloth2 = o.cloth2 || '#ecdcf0';
+    const skin   = o.skin   || '#ffe2d2';
+    const long   = !!o.long;
+    const glasses = !!o.glasses;
+    return `
+      ${long ? `<rect x="-30" y="-76" width="13" height="72" rx="6.5" fill="${hair}" opacity=".92"/>
+                <rect x="17" y="-76" width="13" height="72" rx="6.5" fill="${hair}" opacity=".92"/>` : ''}
+      <rect x="-15" y="-8" width="11.5" height="32" rx="5.75" fill="${cloth2}"/>
+      <rect x="3.5" y="-8" width="11.5" height="32" rx="5.75" fill="${cloth2}"/>
+      <ellipse cx="-9" cy="25" rx="7.2" ry="4.4" fill="#4b3a67"/>
+      <ellipse cx="9.6" cy="25" rx="7.2" ry="4.4" fill="#4b3a67"/>
+      <path d="M-19,-46 q19,-9 38,0 l0,42 q-19,9 -38,0 z" fill="${cloth}"/>
+      <rect x="-24.5" y="-41" width="9.5" height="31" rx="4.75" fill="${cloth}" transform="rotate(7 -19.7 -25)"/>
+      <rect x="15" y="-41" width="9.5" height="31" rx="4.75" fill="${cloth}" transform="rotate(-7 19.7 -25)"/>
+      <circle cx="-21.6" cy="-10" r="5" fill="${skin}"/>
+      <circle cx="21.6" cy="-10" r="5" fill="${skin}"/>
+      <rect x="-5" y="-58" width="10" height="16" rx="4" fill="${skin}"/>
+      <circle cx="0" cy="-70" r="25" fill="${skin}"/>
+      <path d="M-25,-72 A25,25 0 0 1 25,-72 C12,-64 -12,-64 -25,-72 Z" fill="${hair}"/>
+      <path d="M-13.5,-66.5 q4.5,-5 9,0" stroke="#2b1f3d" stroke-width="2.1" fill="none" stroke-linecap="round"/>
+      <path d="M4.5,-66.5 q4.5,-5 9,0" stroke="#2b1f3d" stroke-width="2.1" fill="none" stroke-linecap="round"/>
+      <ellipse cx="-16" cy="-57.5" rx="5.2" ry="3" fill="#ff8fb4" opacity=".42"/>
+      <ellipse cx="16" cy="-57.5" rx="5.2" ry="3" fill="#ff8fb4" opacity=".42"/>
+      <path d="M-3,-54 q3,3.4 6,0" stroke="#cf7288" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+      ${glasses ? `<g fill="#fff" fill-opacity=".07" stroke="#dfe6f7" stroke-width="1.15" opacity=".82">
+        <circle cx="-9" cy="-66.5" r="7.4"/><circle cx="9" cy="-66.5" r="7.4"/>
+        <path d="M-1.6,-66.8 h3.2" fill="none"/><path d="M-16.4,-67.4 l-4.2,-1.6" fill="none"/>
+        <path d="M16.4,-67.4 l4.2,-1.6" fill="none"/></g>
+      <path d="M-13.6,-70.4 a7.4,7.4 0 0 1 6.4,-2.6" stroke="#ffffff" stroke-opacity=".5" stroke-width="1.1" fill="none"/>
+      <path d="M4.4,-70.4 a7.4,7.4 0 0 1 6.4,-2.6" stroke="#ffffff" stroke-opacity=".5" stroke-width="1.1" fill="none"/>` : ''}`;
+  }
+
+  function puppy() {
+    return `
+      <ellipse cx="0" cy="30" rx="26" ry="4.5" fill="#000" opacity=".22"/>
+      <ellipse cx="0" cy="14" rx="22" ry="16" fill="#fdf8fb"/>
+      <path d="M20,8 q12,2 10,10 q-2,7 -8,3" fill="none" stroke="#fdf8fb" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="0" cy="-12" r="19" fill="#fffdfe"/>
+      <path d="M-16,-24 q-7,-13 4,-10 q5,1.5 5.5,7 z" fill="#f2e7f0"/>
+      <path d="M16,-24 q7,-13 -4,-10 q-5,1.5 -5.5,7 z" fill="#f2e7f0"/>
+      <ellipse cx="0" cy="-6.5" rx="10" ry="7.6" fill="#fbeff6" opacity=".9"/>
+      <circle cx="-7" cy="-15" r="2.4" fill="#2a1b3d"/><circle cx="7" cy="-15" r="2.4" fill="#2a1b3d"/>
+      <ellipse cx="0" cy="-6.5" rx="3.3" ry="2.4" fill="#2a1b3d"/>
+      <ellipse cx="-13" cy="-8" rx="4" ry="2.3" fill="#ffa8c4" opacity=".5"/>
+      <ellipse cx="13" cy="-8" rx="4" ry="2.3" fill="#ffa8c4" opacity=".5"/>`;
+  }
+
+  (function cast() {
+    const g = $('#cast'); if (!g) return;
+    g.innerHTML =
+      `<g transform="translate(312,396) scale(1.5)">${person({ hair: '#241a3a', cloth: '#fffafd', cloth2: '#f2e4f0', long: true, glasses: true })}</g>` +
+      `<g transform="translate(404,392) scale(1.62)">${person({ hair: '#241a33', cloth: '#c6cff5', cloth2: '#a9b4e6' })}</g>` +
+      `<g transform="translate(480,428) scale(.92)">${puppy()}</g>`;
+  })();
+
+  /* ==================================================================
+     ⑥  时间轴
+     ================================================================== */
+
+  const ICONS = {
+    chat:  '<path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 0 1 4 11.5 8.5 8.5 0 0 1 8.7 3.9 8.4 8.4 0 0 1 12.5 3h.5a8.5 8.5 0 0 1 8 8z"/>',
+    book:  '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+    sun:   '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/>',
+    cup:   '<path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z"/><path d="M6 2v3M10 2v3M14 2v3"/>',
+    power: '<path d="M18.4 6.6a9 9 0 1 1-12.8 0"/><path d="M12 2v10"/>',
+    shirt: '<path d="M20.4 3.5 16 2a4 4 0 0 1-8 0L3.6 3.5a2 2 0 0 0-1.3 2.2l.6 3.5a1 1 0 0 0 1 .8H6v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-9h2.1a1 1 0 0 0 1-.8l.6-3.5a2 2 0 0 0-1.3-2.2z"/>',
+    heart: '<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.8-7.8 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"/>',
+    camera:'<path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/>',
+    food:  '<path d="M3 2v7a3 3 0 0 0 6 0V2"/><path d="M6 9v13"/><path d="M20 2c-1.6 2.2-2 4.2-2 6s.4 3 2 3.4V22"/>',
+    crown: '<path d="M2 7l4.6 4.2L12 4l5.4 7.2L22 7v11a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>',
+    fire:  '<path d="M12 22a6 6 0 0 0 6-6c0-5-6-14-6-14S6 11 6 16a6 6 0 0 0 6 6z"/><path d="M12 22a2.6 2.6 0 0 0 2.6-2.6c0-2.2-2.6-5.4-2.6-5.4s-2.6 3.2-2.6 5.4A2.6 2.6 0 0 0 12 22z"/>',
+    train: '<rect x="4" y="3" width="16" height="13" rx="2.5"/><path d="M4 10h16"/><path d="M8 16l-2.2 3.8M16 16l2.2 3.8"/><circle cx="8.6" cy="13" r="1"/><circle cx="15.4" cy="13" r="1"/>',
+    train2:'<path d="M6 3h12a2 2 0 0 1 2 2v9a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a2 2 0 0 1 2-2z"/><path d="M4 10h16"/><circle cx="9" cy="13.2" r="1"/><circle cx="15" cy="13.2" r="1"/><path d="M8 17l-2 4M16 17l2 4"/>'
+  };
+  const ico = (n) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"
+    stroke-linecap="round" stroke-linejoin="round">${ICONS[n] || ''}</svg>`;
+
+  (function timeline() {
+    const tl = $('#tl'); if (!tl) return;
+    let i = -1;
+    tl.innerHTML = NODES.map((n) => {
+      if (n.chapter) {
+        return `<div class="chapter reveal"><i></i><span>${n.chapter.title}</span><em>${n.chapter.note || ''}</em><i></i></div>`;
+      }
+      i++;
+      const media = n.img ? `
+        <div class="tl-media">
+          <figure class="tl-photo${n.tall ? ' tall' : ''}" style="--op:${n.op || '50% 46%'}">
+            <img src="${n.img}" alt="${n.alt || n.t}" loading="lazy" decoding="async" />
+            <figcaption>${n.cap || ''}</figcaption>
+          </figure>${n.img2 ? `
+          <figure class="tl-photo" style="--op:${n.op2 || '50% 50%'}">
+            <img src="${n.img2}" alt="${n.alt2 || ''}" loading="lazy" decoding="async" />
+            <figcaption>${n.cap2 || ''}</figcaption>
+          </figure>` : ''}
+        </div>` : '';
+      return `
+      <article class="tl-item reveal" style="transition-delay:${Math.min(i * 60, 240)}ms">
+        <span class="tl-dot"></span>
+        <div class="tl-card">
+          <span class="tl-ico">${ico(n.icon)}</span>
+          <div class="tl-meta"><span>${n.k}</span>${n.d ? `<span class="tl-d2">${n.d}</span>` : ''}</div>
+          <h3 class="tl-t">${n.t}</h3>
+          <p class="tl-p">${n.p}</p>
+        </div>
+        ${media}
+      </article>`;
+    }).join('');
+  })();
+
+  /* ==================================================================
+     ⑦  一百颗心形星
+     ================================================================== */
+
+  const Heart = (function () {
+    const svg = $('#heartSvg');
+    let dots = [], lit = -1, sec = null;
+
+    const pt = (t) => [
+      16 * Math.pow(Math.sin(t), 3),
+      13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)
+    ];
+
+    function build() {
+      const W = 620, H = 560, N = 3600;
+      const seg = []; let len = 0, prev = pt(0);
+      for (let i = 1; i <= N; i++) {
+        const t = i / N * Math.PI * 2, p = pt(t);
+        const d = Math.hypot(p[0] - prev[0], p[1] - prev[1]);
+        seg.push({ t, d }); len += d; prev = p;
+      }
+      const ts = []; let acc = 0, j = 0;
+      for (let i = 0; i < 100; i++) {
+        const target = i * len / 100;
+        while (j < seg.length - 1 && acc + seg[j].d < target) { acc += seg[j].d; j++; }
+        ts.push(seg[j].t);
+      }
+      const pts = ts.map(pt);
+      const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+      const minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
+      const minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+      const s = Math.min((W - 110) / (maxX - minX), (H - 90) / (maxY - minY));
+      const ox = (W - (maxX - minX) * s) / 2, oy = (H - (maxY - minY) * s) / 2;
+
+      const defs = '<defs><radialGradient id="dotGlow"><stop offset="0" stop-color="#ffffff"/>' +
+        '<stop offset="38%" stop-color="#ffe2f0"/><stop offset="72%" stop-color="#ff9fc7" stop-opacity=".85"/>' +
+        '<stop offset="100%" stop-color="#ff6f9c" stop-opacity="0"/></radialGradient></defs>';
+      svg.innerHTML = defs + pts.map((p, i) => {
+        const x = ox + (p[0] - minX) * s + (Math.random() - .5) * 5;
+        const y = oy + (maxY - p[1]) * s + (Math.random() - .5) * 5;
+        return `<circle class="dot" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.3"/>`;
+      }).join('');
+
+      dots = $$('.dot', svg);
+      lit = -1;
+    }
+
+    function update() {
+      if (!sec) sec = $('#stars');
+      if (!sec) return;
+      const r = sec.getBoundingClientRect();
+      const span = sec.offsetHeight - innerHeight;
+      const p = clamp(-r.top / (span > 0 ? span : 1), 0, 1);
+      const next = Math.round(p * 100);
+      if (next === lit) return;
+      lit = next;
+      for (let i = 0; i < dots.length; i++) dots[i].classList.toggle('on', i < lit);
+      const num = $('#litNum'); if (num) num.textContent = lit;
+      const q = $('#quip');
+      if (q) {
+        if (lit >= 100) { q.textContent = '一百天，一颗不少。'; q.classList.add('up'); }
+        else if (lit > 0) { q.textContent = '还差 ' + (100 - lit) + ' 颗'; q.classList.remove('up'); }
+        else { q.textContent = '继续往下，把它们一颗一颗点亮'; q.classList.remove('up'); }
+      }
+    }
+
+    build();
+    return { update, build };
+  })();
+
+  /* ==================================================================
+     ⑧  打字机
+     ================================================================== */
+
+  (function typewriter() {
+    const el = $('#tw'), caret = $('#caret');
+    if (!el) return;
+    let i = 0, started = false;
+    const pause = '，。、；：！？—';
+    function step() {
+      if (i >= LETTER.length) { if (caret) caret.classList.add('done'); return; }
+      const ch = LETTER[i++];
+      el.textContent = LETTER.slice(0, i);
+      const d = ch === '\n' ? 240 : (pause.indexOf(ch) > -1 ? 280 : 33 + Math.random() * 26);
+      setTimeout(step, d);
+    }
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => {
+        if (!e.isIntersecting || started) return;
+        started = true; io.disconnect();
+        if (RM) { el.textContent = LETTER; if (caret) caret.classList.add('done'); return; }
+        step();
+      });
+    }, { threshold: .25 });
+    io.observe(el);
+  })();
+
+  /* ==================================================================
+     ⑨  滚动：进度条 + 星 + 标题视差
+     ================================================================== */
+
+  const Nav = (function () {
+    const box = $('#dots'); if (!box) return { update() {} };
+    const links = $$('a', box);
+    const secs = links.map((a) => document.querySelector(a.getAttribute('href')));
+    return {
+      update() {
+        const mid = innerHeight * .42;
+        let cur = 0;
+        for (let i = 0; i < secs.length; i++) {
+          const el = secs[i];
+          if (el && el.getBoundingClientRect().top <= mid) cur = i;
+        }
+        for (let i = 0; i < links.length; i++) links[i].classList.toggle('on', i === cur);
+        box.classList.toggle('show', (window.scrollY || 0) > 240);
+      }
+    };
+  })();
+
+  (function scrolling() {
+    const bar = $('#bar');
+    let ticking = false;
+    function frame() {
+      ticking = false;
+      const top = window.scrollY || document.documentElement.scrollTop;
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (bar) bar.style.transform = 'scaleX(' + clamp(top / (max || 1), 0, 1) + ')';
+      Heart.update();
+      Nav.update();
+    }
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+    addEventListener('scroll', onScroll, { passive: true });
+    addEventListener('resize', onScroll);
+    frame();
+  })();
+
+  /* ==================================================================
+     ⑩  进场动画
+     ================================================================== */
+
+  (function reveal() {
+    const items = $$('.reveal');
+    if (RM || !('IntersectionObserver' in window)) { items.forEach(el => el.classList.add('in')); return; }
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+    items.forEach(el => io.observe(el));
+  })();
+
+  /* ==================================================================
+     ⑪  爱心拖尾
+     ================================================================== */
+
+  (function trail() {
+    if (RM || !matchMedia('(pointer:fine)').matches) return;
+    const layer = $('#trail'); if (!layer) return;
+    let last = 0;
+    addEventListener('pointermove', (e) => {
+      const now = performance.now();
+      if (now - last < 62) return;
+      last = now;
+      const s = document.createElement('span');
+      s.className = 'tr';
+      s.textContent = '♥';
+      s.style.left = e.clientX + 'px';
+      s.style.top = e.clientY + 'px';
+      s.style.fontSize = (9 + Math.random() * 7).toFixed(1) + 'px';
+      s.style.setProperty('--dx', ((Math.random() - .5) * 34).toFixed(1) + 'px');
+      s.style.setProperty('--rot', ((Math.random() - .5) * 60).toFixed(1) + 'deg');
+      s.style.color = ['#ff9fc7', '#ffd6a5', '#c9a8ff'][Math.floor(Math.random() * 3)];
+      layer.appendChild(s);
+      setTimeout(() => s.remove(), 1050);
+    }, { passive: true });
+  })();
+
+  /* ==================================================================
+     ⑫  背景音乐（WebAudio 现场合成，无需音频文件）
+     ================================================================== */
+
+  const Music = (function () {
+    const btn = $('#musicBtn'), au = $('#bgm');
+    if (!btn || !au) return { get on() { return false; }, stop() {} };
+    const label = btn.querySelector('.mtext');
+    const TARGET = .62;
+    let on = false, fadeTimer = null;
+
+    au.loop = true;
+    au.volume = 0;
+
+    function fade(to, ms, done) {
+      clearInterval(fadeTimer);
+      const from = au.volume, t0 = performance.now();
+      if (Math.abs(to - from) < .01) { au.volume = to; if (done) done(); return; }
+      fadeTimer = setInterval(function () {
+        const k = Math.min(1, (performance.now() - t0) / ms);
+        try { au.volume = from + (to - from) * k; } catch (e) { /* iOS 上 volume 只读 */ }
+        if (k >= 1) { clearInterval(fadeTimer); if (done) done(); }
+      }, 40);
+    }
+
+    function ui(state) {
+      btn.classList.toggle('on', state === 'on');
+      btn.setAttribute('aria-pressed', state === 'on' ? 'true' : 'false');
+      if (label) label.textContent = state === 'loading' ? '载入中' : (state === 'on' ? '播放中' : '音乐');
+    }
+
+    btn.addEventListener('click', function () {
+      if (on) {
+        on = false; ui('off');
+        fade(0, 520, function () { au.pause(); });
+        return;
+      }
+      ui('loading');
+      au.play().then(function () {
+        on = true; ui('on');
+        fade(TARGET, 1500);
+      }).catch(function () {
+        on = false; ui('off');
+        if (label) {
+          label.textContent = '播放失败';
+          setTimeout(function () { if (!on) label.textContent = '音乐'; }, 2200);
+        }
+      });
+    });
+
+    au.addEventListener('pause', function () { if (au.paused && on) { on = false; ui('off'); } });
+
+    return {
+      get on() { return on; },
+      stop() { on = false; ui('off'); au.pause(); }
+    };
+  })();
+
+  /* ==================================================================
+     ⑬  蛋糕彩蛋
+     ================================================================== */
+
+  (function egg() {
+    const box = $('#egg'), cake = $('#cakeBtn'), close = $('#eggX'), bd = $('#eggBd');
+    if (!box || !cake) return;
+    let scrollLock = 0;
+
+    function confetti() {
+      const wrap = $('#confetti');
+      if (!wrap) return;
+      wrap.innerHTML = '';
+      const colors = ['#ff9fc7', '#ffd6a5', '#b79cff', '#8ec5ff', '#fff4e6'];
+      for (let i = 0; i < 72; i++) {
+        const s = document.createElement('i');
+        const w = 4 + Math.random() * 7;
+        s.style.left = (Math.random() * 100).toFixed(1) + '%';
+        s.style.width = w.toFixed(1) + 'px';
+        s.style.height = (w * (.45 + Math.random())).toFixed(1) + 'px';
+        s.style.background = colors[i % colors.length];
+        s.style.opacity = (.5 + Math.random() * .5).toFixed(2);
+        s.style.animationDuration = (2.3 + Math.random() * 2.2).toFixed(2) + 's';
+        s.style.animationDelay = (Math.random() * .7).toFixed(2) + 's';
+        s.style.setProperty('--dx', ((Math.random() - .5) * 180).toFixed(0) + 'px');
+        s.style.setProperty('--rot', ((Math.random() * 900) - 450).toFixed(0) + 'deg');
+        wrap.appendChild(s);
+      }
+    }
+
+    function open() {
+      box.hidden = false;
+      requestAnimationFrame(() => box.classList.add('on'));
+      confetti();
+      scrollLock = window.scrollY;
+      document.documentElement.style.overflow = 'hidden';
+      if (Music.on) { /* 音乐继续，不打断 */ }
+    }
+
+    function shut() {
+      box.classList.remove('on');
+      document.documentElement.style.overflow = '';
+      setTimeout(() => { box.hidden = true; }, 480);
+    }
+
+    cake.addEventListener('click', open);
+    if (close) close.addEventListener('click', shut);
+    if (bd) bd.addEventListener('click', shut);
+    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !box.hidden) shut(); });
+  })();
+
+  /* ==================================================================
+     ⑭  标题跟着日期走
+     ================================================================== */
+
+  (function title() {
+    const sub = document.querySelector('.hero .sub');
+    if (sub && CFG.her) sub.textContent = '给 ' + CFG.her;
+    document.title = '一百天 · 给' + (CFG.her || '');
+  })();
+
+})();
+</script>
+</body>
+</html>
